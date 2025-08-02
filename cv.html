@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>السيرة الذاتية - عبدالرحمن عبدالله</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.05)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            opacity: 0.5;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-left: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .header-content {
+            flex: 1;
+            position: relative;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 18px;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-left: 5px;
+            color: #aac8ff;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: #1e3c72;
+            font-size: 22px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            right: 0;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, #1e3c72, #2a5298);
+        }
+        
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .skill {
+            background: #f0f4f9;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill i {
+            margin-left: 5px;
+            color: #1e3c72;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-right: 30px;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 10px;
+            height: 100%;
+            width: 2px;
+            background: #e0e0e0;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #1e3c72;
+            border: 4px solid #e0e0e0;
+        }
+        
+        .timeline-content {
+            margin-right: 30px;
+        }
+        
+        .timeline-date {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-text {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .project-card {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 15px;
+        }
+        
+        .project-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .project-desc {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            font-size: 12px;
+        }
+        
+        .project-tech span {
+            background: #e0e0e0;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .profile-img {
+                margin-left: 0;
+                margin-bottom: 20px;
+            }
+            
+            .contact-info {
+                justify-content: center;
+            }
+            
+            .timeline::before {
+                right: 5px;
+            }
+            
+            .timeline-content {
+                margin-right: 20px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="a7.jpg" alt="صورة عبدالرحمن عبدالله" class="profile-img">
+            <div class="header-content">
+                <h1>عبدالرحمن عبدالله أحمد مرشد</h1>
+                <p class="title">طالب تقنية معلومات - مستوى رابع</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>23 سنة</span>
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="contact-item">
+                        <span>اليمن</span>
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-item">
+                        <span>abdulrahmanmurshed773@gmail.com</span>
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-item">
+                        <span>+967 773 951 392</span>
+                        <i class="fas fa-phone"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <section class="section">
+            <h2 class="section-title">نبذة عني</h2>
+            <p class="about-text">
+                أنا عبدالرحمن عبدالله، طالب تقنية معلومات مستوى رابع من اليمن، عمري 23 سنة. لدي شغف كبير بمجال التقنية وتحديداً في مجالات الشبكات، الذكاء الاصطناعي والأمن السيبراني. حضرت عدة دورات متخصصة في هذه المجالات وأعمل على تطوير مهاراتي بشكل مستمر. أسعى لتحقيق التميز في مجال تقنية المعلومات والمساهمة في تطوير حلول تقنية مبتكرة.
+            </p>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">المهارات</h2>
+            <div class="skills-container">
+                <div class="skill">
+                    <span>شبكات الحاسوب</span>
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="skill">
+                    <span>الذكاء الاصطناعي</span>
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="skill">
+                    <span>الأمن السيبراني</span>
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="skill">
+                    <span>برمجة Python</span>
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="skill">
+                    <span>قواعد البيانات</span>
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="skill">
+                    <span>تطوير الويب</span>
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="skill">
+                    <span>أنظمة التشغيل</span>
+                    <i class="fas fa-desktop"></i>
+                </div>
+                <div class="skill">
+                    <span>إدارة المشاريع</span>
+                    <i class="fas fa-tasks"></i>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">التعليم والدورات</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021 - الحاضر</div>
+                        <h3 class="timeline-title">بكالوريوس تقنية المعلومات</h3>
+                        <p class="timeline-text">جامعة الجزيرة - المستوى الرابع</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023</div>
+                        <h3 class="timeline-title">دورة متقدمة في الأمن السيبراني</h3>
+                        <p class="timeline-text">مركز تدريب معتمد - 120 ساعة تدريبية</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h3 class="timeline-title">دورة أساسيات الذكاء الاصطناعي</h3>
+                        <p class="timeline-text">منصة تعليمية معتمدة - شهادة معتمدة</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">2021</div>
+                        <h3 class="timeline-title">شهادة CCNA في شبكات الحاسوب</h3>
+                        <p class="timeline-text">سيسكو - المستوى الأول</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <h2 class="section-title">المشاريع</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x150?text=Network+Project" alt="مشروع شبكات" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">نظام مراقبة الشبكات</h3>
+                        <p class="project-desc">نظام لمراقبة أداء الشبكات واكتشاف الأعطال</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>SNMP</span>
+                            <span>Networking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x150?text=AI+Project" alt="مشروع ذكاء اصطناعي" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">نظام تصنيف الصور</h3>
+                        <p class="project-desc">نظام ذكاء اصطناعي لتصنيف الصور باستخدام تعلم الآلة</p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>Deep Learning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/300x150?text=Security+Project" alt="مشروع أمن سيبراني" class="project-img">
+                    <div class="project-content">
+                        <h3 class="project-title">أداة فحص الثغرات</h3>
+                        <p class="project-desc">أداة لاكتشاف الثغرات الأمنية في الأنظمة</p>
+                        <div class="project-tech">
+                            <span>Bash</span>
+                            <span>Cyber Security</span>
+                            <span>Penetration Testing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>© 2023 جميع الحقوق محفوظة | عبدالرحمن عبدالله أحمد مرشد</p>
+            <p>تواصل معي عبر: 
+                <a href="https://www.instagram.com/a_7d.3?igsh=MXB6ZmJkM2h3dnQ5eg=="><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/AbdulrahmanMurshed?tab=repositories"><i class="fab fa-github"></i></a>
+                <a href="https://t.me/A_WW3"><i class="fab fa-telegram"></i></a>
+                <a href="https://x.com/a_7d_3?t=10sUtNN-9PGlUIr-L2tSkQ&s=09
+                "><i class="fab fa-twitter"></i></a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
